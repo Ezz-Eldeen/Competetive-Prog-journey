@@ -12,18 +12,29 @@ scanf("%d", &n);
 for (int i = 0; i<n; i++){
 int a;
 scanf("%d", &a);
-if (a == 1) {
+if (a == 1 ) {
     stairway_counter +=1;
-    if (i!= 0) stairs_counter_arr.push_back(stairs_counter);
+    if (i!= 0){ stairs_counter_arr.push_back(stairs_counter);}
     stairs_counter = 0;
 }
+if (i == n-1){
+    stairs_counter +=1;
+    stairs_counter_arr.push_back(stairs_counter);
+    
+
+}
 stairs_counter +=1;
+
+
 
 }
 printf("%d", stairway_counter);
 printf("\n");
-for (int i=0; i<stairs_counter_arr.size(); i++){
-    printf("%d ",stairs_counter_arr[i] );
+
+for (int num: stairs_counter_arr){
+    printf("%d ",num);
 }
+// printf("%d", stairs_counter_arr.size());
+
 
 }
