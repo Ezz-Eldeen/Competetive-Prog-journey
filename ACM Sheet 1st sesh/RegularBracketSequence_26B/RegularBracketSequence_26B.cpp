@@ -29,13 +29,13 @@ int solve(){
     }
     int count;
 
-    if ( (hash_table['('] + hash_table[')'])%2 ){
+    if ( !(hash_table['('] == hash_table[')']) ){
            
-        count = (hash_table['('] + hash_table[')'])-1;
+        count = ( 2* hash_table[')']);
 
     }
     else{
-        count = (hash_table['('] + hash_table[')']);
+        count = hash_table['('] + hash_table[')'];
 
     }
     return (count);
