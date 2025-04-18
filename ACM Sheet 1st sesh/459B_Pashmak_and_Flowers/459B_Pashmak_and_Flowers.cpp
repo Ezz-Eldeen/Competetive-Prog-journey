@@ -18,30 +18,44 @@ int main()
         negative_queue.push(-a);
 
     }
+    long long n_inputs = positive_queue.size();                  // number of inputs
     int max = positive_queue.top();
     int min = abs(negative_queue.top());
+
+    // std::cout<< positive_queue.size();
 
     int old_max = positive_queue.top(); 
     positive_queue.pop();
     int old_min = abs(negative_queue.top());
     negative_queue.pop();
-    int max_count = 1;
-    int min_count = 1; 
+    // std::cout<< positive_queue.size();
+
+    long long max_count = 1;
+    long long min_count = 1; 
 
 
-    while(old_max == positive_queue.top())
+    while(old_max == positive_queue.top() && !positive_queue.empty())
     {
         max_count++;
         old_max = positive_queue.top();
         positive_queue.pop();
+
     }
 
-    while(old_min == abs(negative_queue.top()))
+    while(old_min == abs(negative_queue.top()) && !negative_queue.empty())
     {
         min_count++;
         old_min = abs(negative_queue.top());
         negative_queue.pop();
+
     }
-    std::cout << max-min << " " << max_count * min_count;
+    long long combinations;
+    if (max-min){
+        combinations = max_count* min_count;
+    }
+    else {
+        combinations = n_inputs*(n_inputs-1) /(2);
+    }
+    std::cout << max-min << " " << combinations;
     
 }
