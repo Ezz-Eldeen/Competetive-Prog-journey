@@ -1,6 +1,6 @@
 # [Worms] (https://codeforces.com/problemset/problem/474/B)
 
-## Problem Idea
+## Problem Idea    (Wrong use of the word prefix sum here, to-do: re-write with proper understanding)
 
 You want to be able to identify where each pile ends, and with that comes the prefix sum.
 
@@ -18,7 +18,7 @@ and in level two (index 1 of the prefix sum array) You unlocked all the values u
 So, if we have a value and we want to know in which level it belongs to, we can use the lower_bound function 
 to take us to the index of its group.
 
-## Example (Optional)
+## Example 
 
 (Taking the previous input array as the input)
 
