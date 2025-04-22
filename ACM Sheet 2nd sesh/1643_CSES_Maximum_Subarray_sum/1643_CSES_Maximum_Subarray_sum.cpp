@@ -45,6 +45,12 @@ int main()
         
         
     }
+    if (current_max > global_max)
+    {
+        global_max = current_max;
+        
+        
+    }
     std::cout << global_max;
     return 0;
 }
