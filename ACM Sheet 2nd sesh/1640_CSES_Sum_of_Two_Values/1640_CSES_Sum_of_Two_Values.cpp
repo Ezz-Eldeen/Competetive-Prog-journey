@@ -1,7 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <unordered_map>
-#include <algorithm>
+#include <map>
 
 int main()
 {
@@ -12,16 +11,27 @@ int main()
     int k;
     scanf("%d", &k);
 
-    std::vector<long long> input;
-    std::unordered_map<long long, int> m1;
-
+    // std::vector<long long> input;
+    std::map<int, int> m1;
+		
+  	bool found  = 0;
     for (int i = 0; i < n; i++)
     {
         int a;
         scanf("%d", &a);
+        if (!found){
+      	if (m1.find(k-a) != m1.end()){
+          std::cout<< ((m1.find(k-a))->second) << " " << i+1;
+          found = 1;
+          break;
+        }
       	m1.insert({a, (i+1)});
-        input.push_back(a);
+      	}
+        // input.push_back(a);
     }
+  if (!found){
+    std::cout<< "IMPOSSIBLE";
+  }
 
 //   for (int i = 0; i< m1.size(); i++){
   	
@@ -29,31 +39,12 @@ int main()
     
 //   }
   
-    std::sort(input.begin(), input.end());
-  	long long i, j;
-  	bool found = 0;
-  
-
-    for (i = 0, j = input.size() - 1; i < input.size();) {
-      long long sum = input[i] + input[j];
-      if (sum > k) {
-        j--;
-      } else if (sum < k) {
-        i++;
-      } else if (sum == k){
-        found = 1;
-        break;
-      }
-    }
-  	if (!found){
-      std::cout<< "IMPOSSIBLE";
-      return 0;
-    }
+			
  
   
-  	std::cout << m1[input[j]] << ' ' << m1[input[i]];
+  	// std::cout << m1[input[j]] << ' ' << m1[input[i]];
   
     return 0;
 }
-// 50
-// 1 3 5 6 10 
+// 2
+// 3 4 5 6 10 
