@@ -1,40 +1,20 @@
 #include <iostream>
-#include <queue>
+#include <map>
 
 int main()
 {
 
-    std::priority_queue<int> box_sizes;
-
     int n;
     scanf("%d", &n);
-    int visible_boxes = n;
+    std::map<int, int> map;
+    int most_occurences = 0;
 
     for (int i = 0; i < n; i++)
     {
-        int a;
+        int a; 
         scanf("%d", &a);
-
-        box_sizes.push(-a);
+        most_occurences = std::max(most_occurences, ++map[a]);
     }
-    int old_value = box_sizes.top(); 
-    box_sizes.pop();
-    while (!box_sizes.empty())
-    {
-        // std::cout<< "Entered Loop"<<"\n";
-        if (box_sizes.top() == old_value)
-        {
-            old_value = box_sizes.top();
-            box_sizes.pop();
-        }
-        else
-        {
-            visible_boxes--;
-            old_value = box_sizes.top();
-            box_sizes.pop();
 
-        }
-        
-    }
-    std::cout<< visible_boxes;
+    std::cout << most_occurences;
 }
